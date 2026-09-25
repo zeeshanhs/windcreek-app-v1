@@ -11,6 +11,7 @@ import { users, type DemoState, type Reference, type User } from "@/lib/askpat/f
 import ChatsView from "./askpat-chats";
 import OrdersView from "./askpat-orders";
 import Panels from "./askpat-panels";
+import ScenarioView from "./scenarios/ahu-15/scenario-view";
 
 const SESSION_KEY = "askpat-demo-user";
 const INTENDED_KEY = "askpat-intended-route";
@@ -76,7 +77,13 @@ export default function AskPatApp() {
   const openPanel = useCallback((panel: string, sourceId?: string, locator?: string) => {
     const params = new URLSearchParams(search.toString());
     params.set("panel", panel);
-    if (sourceId) params.set("sourceId", sourceId); else params.delete("sourceId");
+    if (panel === "citation" && pathname === "/scenarios/ahu-15") {
+      if (sourceId) params.set("citation", sourceId);
+      params.delete("sourceId");
+    } else {
+      params.delete("citation");
+      if (sourceId) params.set("sourceId", sourceId); else params.delete("sourceId");
+    }
     if (locator) params.set("locator", locator); else params.delete("locator");
     openedPanel.current = true;
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
@@ -161,7 +168,7 @@ export default function AskPatApp() {
       <div className="account-area"><span className="property-label">Training property</span><details ref={accountMenuRef} className="account-menu"><summary><span className="avatar">{user.initials}</span><span>{user.name} <small>· {user.role}</small></span></summary><div className="account-popup"><strong>{user.name}</strong><span>{user.email}</span><span>{user.role}</span><button type="button" onClick={async () => { sessionEpoch.current += 1; await resetDemo(); pendingSendIds.current = {}; sendingNow.current.clear(); setSendErrors({}); setWaitingChats({}); setAnswerFailures({}); setDrafts({}); setStaged({}); accountMenuRef.current?.removeAttribute("open"); setNotice("Demo reset to its original records."); }}>Reset demo</button><button type="button" onClick={() => { signingOut.current = true; sessionEpoch.current += 1; sessionStorage.removeItem(SESSION_KEY); sessionStorage.removeItem(INTENDED_KEY); pendingSendIds.current = {}; sendingNow.current.clear(); setSendErrors({}); setWaitingChats({}); setAnswerFailures({}); setUser(null); setDrafts({}); setStaged({}); router.replace("/login?reason=signed-out"); }}>Sign out</button></div></details></div>
     </header>
     {notice && <div className="app-notice" role="status">{notice}<button type="button" aria-label="Dismiss message" onClick={() => setNotice("")}>×</button></div>}
-    {pathname.startsWith("/orders") ? <OrdersView pathname={pathname} /> : pathname.startsWith("/chats") ? <ChatsView pathname={pathname} busy={busy} /> : <main className="loading-screen">This page isn&apos;t available. <Link href="/chats">Go to your chats</Link></main>}
+    {pathname.startsWith("/orders") ? <OrdersView pathname={pathname} /> : pathname.startsWith("/chats") ? <ChatsView pathname={pathname} busy={busy} /> : pathname === "/scenarios/ahu-15" ? <ScenarioView /> : <main className="loading-screen">This page isn&apos;t available. <Link href="/chats">Go to your chats</Link></main>}
     <Panels pathname={pathname} panel={search.get("panel")} sourceId={search.get("sourceId")} locator={search.get("locator")} />
   </AskPatContext.Provider>;
 }

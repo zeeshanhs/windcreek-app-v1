@@ -32,11 +32,14 @@ The form is a UI simulation. Do not enter real credentials. The active demo user
 | `/chats` | Personal mixed general and order-linked chat list |
 | `/chats/new` | Unsaved general-chat draft; first send saves it |
 | `/chats/:chatId` | One user-owned conversation |
+| `/scenarios/ahu-15` | Read-only scripted AHU-15 conversation with six drawing citations |
 | `/orders` | Shared fictional service-order queue |
 | `/orders/new` | Guided order creation |
 | `/orders/:orderId` | Selected order, remarks, history, chat and closure actions |
 
 Dialogs use the parent URL with `?panel=order`, `?panel=close-order`, `?panel=photo`, or `?panel=source&sourceId=…`. Browser Back dismisses an opened dialog. The source viewer presents the authored DF-S01/02/03 training text where available. The referenced `ahu1-points.pdf` is absent and has an unavailable state.
+
+The **AHU-15 scripted scenario** link on `/chats` opens a separate example; it is not part of anyone's personal chats or service orders and is unaffected by **Reset demo**. Inline markers `[1]`–`[6]` open supplied full-page JPEG drawings at `/scenarios/ahu-15?panel=citation&citation=N`. The viewer supports Fit page, zoom buttons, and two-axis panning on enlarged pages, including phones. It does not highlight a cited region. The final “Logged” line and ticket summary are authored scenario text; viewing them creates no ticket. The JPEGs are served from `public/scenarios/ahu-15/` and therefore have direct static URLs. The demo sign-in gate is not server-side authorization for those files.
 
 ## Demo data and reset
 

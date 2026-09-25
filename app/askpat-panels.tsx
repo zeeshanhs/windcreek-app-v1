@@ -6,6 +6,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useAskPat } from "./askpat-context";
 import { formatTime, issueFor, locationFor, sourceRecords, userFor, type Order } from "@/lib/askpat/fixtures";
 import { AlreadyClosedError, VersionConflictError, closeOrder, readState } from "@/lib/askpat/store";
+import CitationViewer from "./scenarios/ahu-15/citation-viewer";
 
 export default function Panels({ pathname, panel, sourceId, locator }: { pathname: string; panel: string | null; sourceId: string | null; locator: string | null }) {
   const { state, user, closePanel } = useAskPat();
@@ -16,6 +17,7 @@ export default function Panels({ pathname, panel, sourceId, locator }: { pathnam
   const order = state.orders.find((item) => item.id === orderId);
   const isChatRoute = pathname.startsWith("/chats/") || pathname === "/chats";
   if (!panel) return null;
+  if (panel === "citation" && pathname === "/scenarios/ahu-15") return <CitationViewer key={search.get("citation") ?? "invalid"} citationValue={search.get("citation")} />;
   if (panel === "order" && order && chat) return <Dialog title="ORDER INFORMATION" onClose={closePanel}><OrderInfo order={order} anchor={sourceId} /></Dialog>;
   if (panel === "close-order" && order) return search.get("simulate") === "order-context-failed" && order.status === "open"
     ? <Dialog title="CLOSE SERVICE ORDER" onClose={closePanel}><p>Order information couldn&apos;t be refreshed. The last loaded state was Open. Return to the conversation and retry context before closing.</p></Dialog>
