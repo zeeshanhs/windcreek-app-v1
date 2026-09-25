@@ -1,0 +1,275 @@
+schema_version: 1.0.0
+assets:
+- id: AS-001
+  name: Observed red combined Wind Creek logo
+  role: logo
+  status: reference-only
+  path: null
+  preview_path: null
+  sha256: null
+  origin: supplied
+  source: windcreek-homepage-1.png, header left
+  evidence:
+  - EV-001
+  scope: identity
+  authenticity: actual
+  usage: Observed role only. An authorized usable original must be supplied before implementation or onward sharing.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.
+- id: AS-002
+  name: Wordmark within the observed combined logo
+  role: wordmark
+  status: reference-only
+  path: null
+  preview_path: null
+  sha256: null
+  origin: supplied
+  source: windcreek-homepage-1.png, header left
+  evidence:
+  - EV-001
+  scope: identity
+  authenticity: actual
+  usage: The wordmark is visible within a combined logo, not supplied as a standalone variant. No separation or
+    recreation is authorized by this kit.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.
+- id: AS-003
+  name: Circular mark within the observed combined logo
+  role: brand-mark
+  status: reference-only
+  path: null
+  preview_path: null
+  sha256: null
+  origin: supplied
+  source: windcreek-homepage-1.png, header left
+  evidence:
+  - EV-001
+  scope: identity
+  authenticity: actual
+  usage: The circular mark is observed within the header logo. Its standalone official use, minimum size and clear
+    space were not verified.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.
+- id: AS-004
+  name: Hospitality hero photograph, responsive web rendition
+  role: hero-image
+  status: reference-only
+  path: null
+  preview_path: null
+  sha256: null
+  origin: retrieved
+  source: https://windcreek.com/sites/default/files/styles/responsive_16_9_300w/public/2024-05/wc-home-hero2.jpg?h=06ac0d8c&itok=6z3AHZS1
+  evidence:
+  - EV-001
+  - EV-011
+  scope: page-specific
+  authenticity: unknown
+  usage: URL was opened visually; no local bytes or original master were retrieved. Treat depicted people and venue
+    claims as unverified for reuse. The responsive rendition is not an identity asset.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.
+- id: AS-005
+  name: Corporate event, community and service photography
+  role: photography
+  status: reference-only
+  path: null
+  preview_path: null
+  sha256: null
+  origin: supplied
+  source: windcreek-about-page-1.png; https://windcreek.com/hospitality
+  evidence:
+  - EV-002
+  - EV-012
+  scope: page-specific
+  authenticity: unknown
+  usage: Observed image roles; no independent originals, pictured-person identities, releases or onward-sharing
+    rights are established.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.
+- id: AS-006
+  name: Property discovery photography
+  role: photography
+  status: reference-only
+  path: null
+  preview_path: null
+  sha256: null
+  origin: supplied
+  source: windcreek-homepage-1.png, Locations grid
+  evidence:
+  - EV-001
+  scope: page-specific
+  authenticity: unknown
+  usage: Actual source-page location-image roles are visible. Obtain specific authorized originals for any real
+    named-property use; do not synthesize documentary substitutes.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.
+- id: AS-007
+  name: Rewards-card image arrangement
+  role: graphic
+  status: reference-only
+  path: null
+  preview_path: null
+  sha256: null
+  origin: supplied
+  source: windcreek-homepage-1.png; windcreek-rewards-page.png; https://windcreek.com/rewards
+  evidence:
+  - EV-001
+  - EV-003
+  - EV-013
+  scope: campaign-specific
+  authenticity: unknown
+  usage: Multiple card images form an arrangement beside live copy. The arrangement is not proof of one original
+    flattened title-image file. Original cards and permission must be supplied for reuse.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.
+- id: AS-008
+  name: Supplied red supporting texture
+  role: graphic
+  status: reference-only
+  path: null
+  preview_path: null
+  sha256: null
+  origin: supplied
+  source: windcreek-about-page-image-background.jpg; https://windcreek.com/themes/custom/wc2024/components/hero/images/bg-red-02.jpg
+  evidence:
+  - EV-010
+  - EV-019
+  scope: brand-reusable
+  authenticity: actual
+  usage: The supplied JPEG was inspected and measured but is deliberately not copied to this kit. Use a plain red
+    CSS plane or omit decoration until reuse is established.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.
+- id: AS-009
+  name: Pale angular pattern and linear divider artwork
+  role: illustration
+  status: reference-only
+  path: null
+  preview_path: null
+  sha256: null
+  origin: supplied
+  source: windcreek-homepage-1.png, footer and divider; windcreek-about-page-1.png
+  evidence:
+  - EV-001
+  - EV-002
+  scope: brand-reusable
+  authenticity: actual
+  usage: Distinctive supporting artwork visible only in page references. No separate original or licensing basis
+    was collected. Do not substitute it for the logo or assign cultural meaning.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.
+- id: AS-010
+  name: Functional control and benefit glyph references
+  role: icon
+  status: reference-only
+  path: null
+  preview_path: null
+  sha256: null
+  origin: supplied
+  source: Supplied Sign In/menu/Rewards UI crops
+  evidence:
+  - EV-005
+  - EV-008
+  - EV-004
+  scope: brand-reusable
+  authenticity: unknown
+  usage: Visual reference to ordinary functional glyphs, not an extracted icon library. Use a separately authorized
+    library or simple newly authored functional SVGs later. Do not claim the original icon font is delivered.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.
+- id: AS-011
+  name: Unverified source typography
+  role: font-reference
+  status: missing
+  path: null
+  preview_path: null
+  sha256: null
+  origin: supplied
+  source: Supplied page screenshots; source CSS and loaded font families unavailable
+  evidence:
+  - EV-001
+  - EV-002
+  - EV-018
+  scope: brand-reusable
+  authenticity: unknown
+  usage: The observed condensed/body relationship is documented. Exact original font families are unknown; theme.css
+    contains local-only approximations. No font binaries may be shipped.
+  restrictions:
+  - No reusable original is included.
+  - Do not reconstruct or extract a substitute and call it original.
+  - Demo reuse and external-AI sharing of the original are not established.
+  permissions:
+    demo_use: reference-only
+    external_ai: unknown
+    basis: Inspection was requested; the user did not supply a blanket original-asset reuse or onward-sharing license.
+      See EV-014 and the user request.

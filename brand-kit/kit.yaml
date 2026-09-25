@@ -1,0 +1,225 @@
+schema_version: 1.0.0
+framework_version: cek-chat-1.0.0
+brand:
+  id: wind-creek-hospitality
+  name: Wind Creek Hospitality
+population: partial
+purpose: brand
+paths:
+  experience: experience.md
+  design: design.md
+  patterns: patterns.md
+  theme: theme.css
+  assets: assets/index.yaml
+  evidence: evidence/index.yaml
+sources:
+- id: SRC-001
+  kind: task-input
+  location: 'Current conversation: user Build kit request, 2026-09-24'
+  authority: reference
+  scope: Brand target, permitted derived-guidance workflow, no application design, supplied state descriptions;
+    not a confirmed brand manual.
+- id: SRC-002
+  kind: supplied-guidance
+  location: windcreek-homepage-1.png; windcreek-about-page-1.png; windcreek-rewards-page.png; windcreek-rewards-page-prime-tokens.png
+  authority: reference
+  scope: User-supplied desktop-shaped page screenshots; visual composition and content relationships, not CSS viewport
+    or runtime behavior.
+- id: SRC-003
+  kind: website
+  location: https://windcreek.com/
+  authority: reference
+  scope: Public homepage text and linked image resources fetched on 2026-09-24; no live rendered page or computed
+    CSS.
+- id: SRC-004
+  kind: website
+  location: https://windcreek.com/hospitality
+  authority: reference
+  scope: Corporate About text and media roles. This is the resolved About route, not /about or /about-us.
+- id: SRC-005
+  kind: website
+  location: https://windcreek.com/rewards
+  authority: reference
+  scope: Public Rewards text and conceptual content groups. Not authoritative evergreen benefit logic.
+- id: SRC-006
+  kind: supplied-guidance
+  location: sign-in_button.png; sign-in_button_hover-effect.png; find-a-job_button.png; find-a-job_button_hover-effect.png;
+    contact-us_button.png; contact-us_button_hover-effect.png; about-us_menu_hover.png; about-us_menu_open.png;
+    selected_text_field.png
+  authority: reference
+  scope: Supplied normal, user-described hover, selected/open menu and visible field-focus appearances; triggers
+    and timing unverified.
+- id: SRC-007
+  kind: supplied-guidance
+  location: windcreek-about-page-image-background.jpg
+  authority: reference
+  scope: Supplied red texture, visually inspected; reuse and onward sharing of original artwork not established.
+- id: SRC-008
+  kind: task-input
+  location: windcreek-meeting-drawing-1.png
+  authority: reference
+  scope: Project-specific pipeline sketch; deliberately excluded from reusable brand derivation and from media exports.
+- id: SRC-009
+  kind: website
+  location: https://windcreek.com/privacy-policy
+  authority: reference
+  scope: Rights-reservation text inspected. No broad media-reuse or external-AI permission established.
+- id: SRC-010
+  kind: website
+  location: https://windcreek.com/terms-of-service
+  authority: reference
+  scope: Fetched text contained a Terms of Service load-error message; no license inferred from it.
+- id: SRC-011
+  kind: website
+  location: https://windcreek.com/themes/custom/wc2024/components/hero/images/bg-red-02.jpg
+  authority: reference
+  scope: Linked red texture visually inspected in the web tool; not collected or licensed for reuse.
+coverage:
+- context: web-marketing
+  status: observed
+  evidence:
+  - EV-001
+  - EV-002
+  - EV-003
+  - EV-004
+  - EV-011
+  - EV-012
+  - EV-013
+  note: 'Useful desktop public-page slice: composition, typography relationships, controls, grouping and imagery
+    roles; not pixel-perfect extraction or mobile/runtime validation.'
+- context: web-app
+  status: extended
+  evidence:
+  - EV-003
+  - EV-004
+  - EV-005
+  - EV-006
+  - EV-009
+  note: Adapt public controls and structured content into readable work tools. No authenticated app or system architecture
+    is claimed; functionality awaits the separate system specification.
+- context: web-editorial
+  status: extended
+  evidence:
+  - EV-002
+  - EV-012
+  note: Extend corporate text/news hierarchy and imagery roles into reading layouts. Full article design not inspected.
+- context: image-only
+  status: extended
+  evidence:
+  - EV-001
+  - EV-002
+  - EV-010
+  note: Art-direction recipes derived from visible hospitality, property and community imagery. No generated image,
+    permission-cleared photograph or exact-identity reference asset is delivered.
+recognition_rule_ids:
+- DES-001
+- DES-002
+- DES-003
+- DES-008
+imagery_policy: image-families
+asset_inventory:
+- category: logo
+  status: found
+  asset_ids:
+  - AS-001
+  evidence:
+  - EV-001
+  note: Visible in supplied page only; no usable original included.
+- category: wordmark
+  status: found
+  asset_ids:
+  - AS-002
+  evidence:
+  - EV-001
+  note: Visible within combined logo, not a verified standalone asset.
+- category: brand-mark
+  status: found
+  asset_ids:
+  - AS-003
+  evidence:
+  - EV-001
+  note: Visible within combined logo; independent variant rules unknown.
+- category: favicon
+  status: not-inspected
+  asset_ids: []
+  evidence: []
+  note: No confirmed favicon file or rendered browser-tab inspection.
+- category: hero-image
+  status: found
+  asset_ids:
+  - AS-004
+  evidence:
+  - EV-001
+  - EV-011
+  note: Responsive photo role identified; no original-master file or license delivered.
+- category: title-image
+  status: not-applicable
+  asset_ids: []
+  evidence:
+  - EV-001
+  - EV-002
+  - EV-003
+  note: Inspected introductions use live heading copy paired with separate media. No standalone flattened title-image
+    asset is needed for this observed composition; future campaign title art remains a separate task.
+- category: photography
+  status: found
+  asset_ids:
+  - AS-004
+  - AS-005
+  - AS-006
+  evidence:
+  - EV-001
+  - EV-002
+  note: Hospitality/property/corporate roles assessed; original photography is reference-only and not exported.
+- category: illustration
+  status: found
+  asset_ids:
+  - AS-007
+  - AS-008
+  - AS-009
+  evidence:
+  - EV-001
+  - EV-002
+  - EV-010
+  note: Rewards cards and support artwork observed; no original reusable artwork is included.
+- category: icons
+  status: found
+  asset_ids:
+  - AS-010
+  evidence:
+  - EV-004
+  - EV-005
+  - EV-008
+  note: Functional glyph roles visible; no extracted original icon set or icon-font binary.
+sharing:
+  guidance_external_ai: permitted
+  basis: User request dated 2026-09-24 explicitly asks for a reusable derived Client Experience Kit and a packet
+    to use in another ChatGPT conversation for this same brand.
+export_defaults:
+  rule_ids: []
+  asset_ids: []
+  evidence_ids:
+  - EV-020
+  - EV-021
+  - EV-022
+  - EV-023
+  max_words: 10000
+  max_images: 4
+known_gaps:
+- Working evidence-led kit, not a client-approved brand manual; all authored rules have working authority.
+- No source CSS, computed styles, loaded fonts, live mobile rendering or exercised source interactions. Browser
+  navigation was blocked; no bypass attempted.
+- Screenshot raster sizes are known, but original browser viewport, DPR, zoom and source capture dates are not established.
+- Original logo, standalone wordmark/mark, favicon, photography, rewards-card art and decorative graphics are not
+  delivered as reusable assets. Their reuse/sharing permissions remain unestablished.
+- Favicon and official identity variant/clear-space rules were not inspected. No official font family is identified,
+  and font binaries are excluded.
+- The four supplied analytical reference sheets support typography, controls and grouping. Exact identity and photographic
+  visual references remain incomplete; no visual fidelity claim is made for those roles.
+- Authenticated applications and full editorial articles were not visually inspected. Their guidance is explicitly
+  extended from public-page evidence.
+- Some Rewards screenshot text is low-resolution; screenshots are visual references, not evergreen benefit amounts,
+  eligibility or operating requirements.
+- No dark theme, motion timing, source keyboard behavior, validation flow or loading/error state was visually verified.
+  A source error string in fetched text is not a tested user-visible state.
+- The project drawing is excluded from reusable brand guidance; no application or system-specific screens were designed.

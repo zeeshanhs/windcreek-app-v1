@@ -1,0 +1,398 @@
+schema_version: 1.0.0
+evidence:
+- id: EV-001
+  title: Supplied homepage
+  source_id: SRC-002
+  kind: supplied-guidance
+  source_location: windcreek-homepage-1.png
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: supplied full-page capture
+  path: null
+  preview_path: null
+  observation: 1370 x 2048 raster, not a verified viewport. Light ground; two-level desktop header; centered text
+    beside a hospitality photo and offset red support; property image grid with overlaid labels; rewards artwork/copy
+    strip; patterned footer. Original mixed-media screenshot is not repackaged. Source capture time unknown.
+  external_ai: unknown
+  permission_basis: null
+- id: EV-002
+  title: Supplied corporate About page
+  source_id: SRC-002
+  kind: supplied-guidance
+  source_location: windcreek-about-page-1.png
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: supplied full-page capture
+  path: null
+  preview_path: null
+  observation: 1146 x 2047 raster. Left-aligned introductory text beside an event photo; history/community/careers
+    imagery; a distinct news list region; shared red/gray/white language. Does not identify pictured people. Source
+    capture time unknown.
+  external_ai: unknown
+  permission_basis: null
+- id: EV-003
+  title: Supplied Rewards comparison
+  source_id: SRC-002
+  kind: supplied-guidance
+  source_location: windcreek-rewards-page.png
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: Gaming & Retail tab visibly selected
+  path: null
+  preview_path: null
+  observation: 688 x 2048 exported raster retains desktop-style multiple columns; not evidence of a 688 CSS-pixel
+    layout or mobile breakpoint. Pale tier columns, row rules, labels, tabs and an FAQ list are visible. Small copy
+    is low-resolution; no precise terms are inferred.
+  external_ai: unknown
+  permission_basis: null
+- id: EV-004
+  title: Supplied Prime Tokens state
+  source_id: SRC-002
+  kind: supplied-guidance
+  source_location: windcreek-rewards-page-prime-tokens.png
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: Prime Tokens tab visibly selected
+  path: null
+  preview_path: null
+  observation: 622 x 2048 raster, not a mobile inspection. A different selected tab and benefit groups are visible.
+    Groups use white outer surfaces, pale interior tiles, short display labels and small red symbols. Switching
+    behavior was not exercised.
+  external_ai: unknown
+  permission_basis: null
+- id: EV-005
+  title: Sign In appearance pair
+  source_id: SRC-006
+  kind: supplied-guidance
+  source_location: sign-in_button.png; sign-in_button_hover-effect.png
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: normal and user-described hover
+  path: null
+  preview_path: null
+  observation: Red outlined action with entry-style icon and label. User-described hover adds strengthened framing
+    and shadow; no real browser interaction was performed.
+  external_ai: permitted
+  permission_basis: User supplied UI-state/page screenshots and explicitly requested permitted visual references
+    for the next same-brand ChatGPT conversation. This record authorizes only focused non-photographic analytical
+    excerpts in that requested workflow, not public redistribution, original-asset licensing, commercial reuse or
+    use as UI bitmaps.
+- id: EV-006
+  title: Find a Job appearance pair
+  source_id: SRC-006
+  kind: supplied-guidance
+  source_location: find-a-job_button.png; find-a-job_button_hover-effect.png
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: normal and user-described hover
+  path: null
+  preview_path: null
+  observation: White label on a red-to-deep-red fill. Supplied hover image changes the fill emphasis and adds a
+    darker edge/shadow. Exact source gradient function and transition timing are not known.
+  external_ai: permitted
+  permission_basis: User supplied UI-state/page screenshots and explicitly requested permitted visual references
+    for the next same-brand ChatGPT conversation. This record authorizes only focused non-photographic analytical
+    excerpts in that requested workflow, not public redistribution, original-asset licensing, commercial reuse or
+    use as UI bitmaps.
+- id: EV-007
+  title: Contact Us appearance pair
+  source_id: SRC-006
+  kind: supplied-guidance
+  source_location: contact-us_button.png; contact-us_button_hover-effect.png
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: normal and user-described hover
+  path: null
+  preview_path: null
+  observation: Red text on white at rest; a light gray low-radius background on user-described hover.
+  external_ai: permitted
+  permission_basis: User supplied UI-state/page screenshots and explicitly requested permitted visual references
+    for the next same-brand ChatGPT conversation. This record authorizes only focused non-photographic analytical
+    excerpts in that requested workflow, not public redistribution, original-asset licensing, commercial reuse or
+    use as UI bitmaps.
+- id: EV-008
+  title: Selected/open About navigation
+  source_id: SRC-006
+  kind: supplied-guidance
+  source_location: about-us_menu_hover.png; about-us_menu_open.png
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: selected and open menu; activation method unverified
+  path: null
+  preview_path: null
+  observation: The user calls the first image selected. An underline is visible; the second has an open menu, trigger
+    emphasis and an emphasized Community Support row. Static images do not establish hover-open or keyboard triggers.
+    Full images contain background media; only UI excerpts travel.
+  external_ai: unknown
+  permission_basis: null
+- id: EV-009
+  title: Focused form field
+  source_id: SRC-006
+  kind: supplied-guidance
+  source_location: selected_text_field.png
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: visible focus-like appearance; input modality unverified
+  path: null
+  preview_path: null
+  observation: Visible caret, pale red outer halo and tinted field edge; nearby email field has a neutral outline.
+    The large raster crop does not provide source CSS sizes. No form was submitted.
+  external_ai: unknown
+  permission_basis: null
+- id: EV-010
+  title: Decorative red texture
+  source_id: SRC-007
+  kind: supplied-guidance
+  source_location: windcreek-about-page-image-background.jpg
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: static artwork
+  path: null
+  preview_path: null
+  observation: Actual supplied 1500 x 1500 JPEG; mottled deep-red texture. A visually corresponding public image
+    was opened at SRC-011. No byte-equivalence to that web resource is claimed. Original texture is omitted from
+    the deliverables.
+  external_ai: unknown
+  permission_basis: null
+- id: EV-011
+  title: Homepage text and linked media
+  source_id: SRC-003
+  kind: website
+  source_location: https://windcreek.com/
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: text-inspection
+  viewport: null
+  state: public text; UI runtime state unverified
+  path: null
+  preview_path: null
+  observation: Web tool fetched public content identifying the brand, hospitality emphasis, location discovery and
+    Rewards sections. Linked texture and a 300w responsive photo rendition were opened for visual inspection. Text
+    extraction is not page rendering. The global account snippets do not establish active errors or an authenticated
+    state.
+  external_ai: permitted
+  permission_basis: User request dated 2026-09-24 explicitly asks for a reusable derived Client Experience Kit and
+    a packet to use in another ChatGPT conversation for this same brand. This file contains analyst-authored measurements/observations,
+    not original photo, logo, artwork or font bytes.
+- id: EV-012
+  title: Corporate About text
+  source_id: SRC-004
+  kind: website
+  source_location: https://windcreek.com/hospitality
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: text-inspection
+  viewport: null
+  state: public text; visual layout from EV-002
+  path: null
+  preview_path: null
+  observation: The resolved About route identifies Wind Creek Hospitality and describes gaming, hospitality, community
+    and careers. This confirms the target brand spelling; the working kit does not carry property counts or news
+    dates as evergreen facts.
+  external_ai: permitted
+  permission_basis: User request dated 2026-09-24 explicitly asks for a reusable derived Client Experience Kit and
+    a packet to use in another ChatGPT conversation for this same brand. This file contains analyst-authored measurements/observations,
+    not original photo, logo, artwork or font bytes.
+- id: EV-013
+  title: Rewards text structure
+  source_id: SRC-005
+  kind: website
+  source_location: https://windcreek.com/rewards
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: text-inspection
+  viewport: null
+  state: public text; visual layout from EV-003 and EV-004
+  path: null
+  preview_path: null
+  observation: Public text names tier/point concepts, benefits and FAQ content. The kit reuses scoped terminology
+    and visual relationships, not monetary rules or eligibility. Public account template text is not a tested state.
+  external_ai: permitted
+  permission_basis: User request dated 2026-09-24 explicitly asks for a reusable derived Client Experience Kit and
+    a packet to use in another ChatGPT conversation for this same brand. This file contains analyst-authored measurements/observations,
+    not original photo, logo, artwork or font bytes.
+- id: EV-014
+  title: Rights-reservation observation
+  source_id: SRC-009
+  kind: website
+  source_location: https://windcreek.com/privacy-policy
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: text-inspection
+  viewport: null
+  state: public text
+  path: null
+  preview_path: null
+  observation: The privacy page includes copyright and rights-reservation language. It did not establish a general
+    license to redistribute original photographs, logos, graphic artwork or font files in this packet. This is an
+    asset-disposition observation, not legal advice.
+  external_ai: permitted
+  permission_basis: User request dated 2026-09-24 explicitly asks for a reusable derived Client Experience Kit and
+    a packet to use in another ChatGPT conversation for this same brand. This file contains analyst-authored measurements/observations,
+    not original photo, logo, artwork or font bytes.
+- id: EV-015
+  title: Terms page limited retrieval
+  source_id: SRC-010
+  kind: website
+  source_location: https://windcreek.com/terms-of-service
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: text-inspection
+  viewport: null
+  state: text fetch with load-error content
+  path: null
+  preview_path: null
+  observation: The fetched page text included a Terms of Service load-error message. No contents of unseen terms
+    or affirmative media permission were inferred.
+  external_ai: permitted
+  permission_basis: User request dated 2026-09-24 explicitly asks for a reusable derived Client Experience Kit and
+    a packet to use in another ChatGPT conversation for this same brand. This file contains analyst-authored measurements/observations,
+    not original photo, logo, artwork or font bytes.
+- id: EV-016
+  title: Excluded project drawing
+  source_id: SRC-008
+  kind: supplied-guidance
+  source_location: windcreek-meeting-drawing-1.png
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: user-supplied
+  viewport: null
+  state: excluded from brand derivation
+  path: null
+  preview_path: null
+  observation: Recognized as a project-specific processing pipeline diagram rather than branded UI. Not used to
+    define brand colors, architecture, screens, business terminology or workflow requirements. Original is not included.
+  external_ai: unknown
+  permission_basis: null
+- id: EV-017
+  title: Actual raster and color-profile measurements
+  source_id: SRC-002
+  kind: supplied-guidance
+  source_location: Supplied files listed in evidence/captures/raster-measurements.json
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: source-file
+  viewport: null
+  state: offline inspection
+  path: evidence/captures/raster-measurements.json
+  preview_path: null
+  observation: 'Pillow measured raster dimensions and real SHA-256 values. Embedded Display profiles in detail crops
+    were converted to sRGB. A frequent raw red #96352F converts to #A32B29; untagged full-page captures already
+    contain #A32B29. This is evidence against treating those raw values as two official reds. Pixel colors are not
+    recovered CSS values.'
+  external_ai: permitted
+  permission_basis: User request dated 2026-09-24 explicitly asks for a reusable derived Client Experience Kit and
+    a packet to use in another ChatGPT conversation for this same brand. This file contains analyst-authored measurements/observations,
+    not original photo, logo, artwork or font bytes.
+- id: EV-018
+  title: Live browser and source-CSS gap
+  source_id: SRC-003
+  kind: website
+  source_location: https://windcreek.com/
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: text-inspection
+  viewport: null
+  state: access limitation
+  path: null
+  preview_path: null
+  observation: Container HTTP access failed; a Chromium navigation attempt returned net::ERR_BLOCKED_BY_ADMINISTRATOR.
+    No bypass was attempted. The public web text tool worked. No new rendered capture, computed CSS, loaded font,
+    mobile layout or live control behavior was obtained. No source JavaScript was downloaded and executed locally.
+  external_ai: permitted
+  permission_basis: User request dated 2026-09-24 explicitly asks for a reusable derived Client Experience Kit and
+    a packet to use in another ChatGPT conversation for this same brand. This file contains analyst-authored measurements/observations,
+    not original photo, logo, artwork or font bytes.
+- id: EV-019
+  title: Linked original-artwork roles
+  source_id: SRC-011
+  kind: website
+  source_location: https://windcreek.com/themes/custom/wc2024/components/hero/images/bg-red-02.jpg
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: source-file
+  viewport: null
+  state: web visual image inspection; not rendered page
+  path: null
+  preview_path: null
+  observation: Web image inspection established the red support texture role. The home hero link exposed a responsive
+    photographic rendition, not a licensed original master. No original asset bytes are bundled from the site.
+  external_ai: unknown
+  permission_basis: null
+- id: EV-020
+  title: Control appearance and action hierarchy
+  source_id: SRC-006
+  kind: supplied-guidance
+  source_location: WC_REF_01_ACTION_STATES.png; source crop provenance in CLIENT_KIT_FOR_CHAT.md
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: source-file
+  viewport: null
+  state: reference sheet
+  path: evidence/captures/WC_REF_01_ACTION_STATES.png
+  preview_path: null
+  observation: 'Three paired action styles: filled red, outlined red, and text-only; normal and supplied hover appearances.
+    Analyst-composed analytical sheet of original UI excerpts, with restricted media excluded. Not an application
+    design, source browser render, canonical artwork or proof of CSS geometry.'
+  external_ai: permitted
+  permission_basis: User supplied UI-state/page screenshots and explicitly requested permitted visual references
+    for the next same-brand ChatGPT conversation. This record authorizes only focused non-photographic analytical
+    excerpts in that requested workflow, not public redistribution, original-asset licensing, commercial reuse or
+    use as UI bitmaps.
+- id: EV-021
+  title: Selection, disclosure and focus reference
+  source_id: SRC-006
+  kind: supplied-guidance
+  source_location: WC_REF_02_NAVIGATION_AND_FOCUS.png; source crop provenance in CLIENT_KIT_FOR_CHAT.md
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: source-file
+  viewport: null
+  state: reference sheet
+  path: evidence/captures/WC_REF_02_NAVIGATION_AND_FOCUS.png
+  preview_path: null
+  observation: Active navigation underline, open four-item menu with an emphasized row, and focused/neutral form
+    fields. Analyst-composed analytical sheet of original UI excerpts, with restricted media excluded. Not an application
+    design, source browser render, canonical artwork or proof of CSS geometry.
+  external_ai: permitted
+  permission_basis: User supplied UI-state/page screenshots and explicitly requested permitted visual references
+    for the next same-brand ChatGPT conversation. This record authorizes only focused non-photographic analytical
+    excerpts in that requested workflow, not public redistribution, original-asset licensing, commercial reuse or
+    use as UI bitmaps.
+- id: EV-022
+  title: Recognition-critical color and typography relationships
+  source_id: SRC-002
+  kind: supplied-guidance
+  source_location: WC_REF_03_COLOR_AND_TYPE.png; source crop provenance in CLIENT_KIT_FOR_CHAT.md
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: source-file
+  viewport: null
+  state: reference sheet
+  path: evidence/captures/WC_REF_03_COLOR_AND_TYPE.png
+  preview_path: null
+  observation: Centered and left-aligned headline/body excerpts with six color-managed palette swatches. Analyst-composed
+    analytical sheet of original UI excerpts, with restricted media excluded. Not an application design, source
+    browser render, canonical artwork or proof of CSS geometry.
+  external_ai: permitted
+  permission_basis: User supplied UI-state/page screenshots and explicitly requested permitted visual references
+    for the next same-brand ChatGPT conversation. This record authorizes only focused non-photographic analytical
+    excerpts in that requested workflow, not public redistribution, original-asset licensing, commercial reuse or
+    use as UI bitmaps.
+- id: EV-023
+  title: Semantic grouping, tables and restrained surfaces
+  source_id: SRC-002
+  kind: supplied-guidance
+  source_location: WC_REF_04_GROUPING_AND_COMPARISON.png; source crop provenance in CLIENT_KIT_FOR_CHAT.md
+  captured_at: '2026-09-24T12:47:12+00:00'
+  method: source-file
+  viewport: null
+  state: reference sheet
+  path: evidence/captures/WC_REF_04_GROUPING_AND_COMPARISON.png
+  preview_path: null
+  observation: A rewards comparison-table excerpt and one benefit group with small red icons and gray tiles. Analyst-composed
+    analytical sheet of original UI excerpts, with restricted media excluded. Not an application design, source
+    browser render, canonical artwork or proof of CSS geometry.
+  external_ai: permitted
+  permission_basis: User supplied UI-state/page screenshots and explicitly requested permitted visual references
+    for the next same-brand ChatGPT conversation. This record authorizes only focused non-photographic analytical
+    excerpts in that requested workflow, not public redistribution, original-asset licensing, commercial reuse or
+    use as UI bitmaps.

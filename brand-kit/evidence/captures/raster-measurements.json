@@ -1,0 +1,898 @@
+{
+  "inspection_time": "2026-09-24T12:47:12+00:00",
+  "method": "Pillow raster dimensions, SHA-256 and frequency sampling; embedded Display profiles converted to sRGB where present",
+  "limits": [
+    "Screenshot dimensions are not CSS viewport measurements.",
+    "No CSS source or computed style was available.",
+    "Most-used colors describe supplied raster pixels, not official brand specifications.",
+    "Source capture timestamps were not established; inspection time is this package build.",
+    "No font was identified from pixels alone."
+  ],
+  "records": [
+    {
+      "filename": "windcreek-homepage-1.png",
+      "original_sha256": "2a84995728cf300513a114fd1b8273e751c7c7c14cff9da0fa72e524dbb4f73a",
+      "raster_width": 1370,
+      "raster_height": 2048,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "untagged; treated as sRGB for this analysis (not independently verified)",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#F8F9FA",
+          "pixel_count": 961703
+        },
+        {
+          "hex": "#EDF0F3",
+          "pixel_count": 525992
+        },
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 339163
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 69469
+        },
+        {
+          "hex": "#EEF1F4",
+          "pixel_count": 13549
+        },
+        {
+          "hex": "#F9FAFB",
+          "pixel_count": 6625
+        },
+        {
+          "hex": "#FEFEFE",
+          "pixel_count": 6424
+        },
+        {
+          "hex": "#F7F8F9",
+          "pixel_count": 5998
+        },
+        {
+          "hex": "#F3F5F7",
+          "pixel_count": 5317
+        },
+        {
+          "hex": "#EFF1F4",
+          "pixel_count": 4581
+        },
+        {
+          "hex": "#F4F6F8",
+          "pixel_count": 4525
+        },
+        {
+          "hex": "#F0F3F5",
+          "pixel_count": 4484
+        }
+      ]
+    },
+    {
+      "filename": "windcreek-about-page-1.png",
+      "original_sha256": "4b678dd9ba99929b49cd371b99ff418d11aecfa1b03980afbf9295a610a0c12b",
+      "raster_width": 1146,
+      "raster_height": 2047,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "untagged; treated as sRGB for this analysis (not independently verified)",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#F8F9FA",
+          "pixel_count": 875795
+        },
+        {
+          "hex": "#EDF0F3",
+          "pixel_count": 554350
+        },
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 229079
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 43750
+        },
+        {
+          "hex": "#EEF1F4",
+          "pixel_count": 7665
+        },
+        {
+          "hex": "#F3F5F7",
+          "pixel_count": 4956
+        },
+        {
+          "hex": "#F2F4F6",
+          "pixel_count": 3242
+        },
+        {
+          "hex": "#EFF2F4",
+          "pixel_count": 3092
+        },
+        {
+          "hex": "#F4F5F7",
+          "pixel_count": 2966
+        },
+        {
+          "hex": "#F0F3F5",
+          "pixel_count": 2895
+        },
+        {
+          "hex": "#F4F6F7",
+          "pixel_count": 2764
+        },
+        {
+          "hex": "#EFF1F4",
+          "pixel_count": 2670
+        }
+      ]
+    },
+    {
+      "filename": "windcreek-rewards-page.png",
+      "original_sha256": "53ff3a7e2d823d6464d42dc62b38c8624666e60b5fc8ce50e0b93d71b764a9a1",
+      "raster_width": 688,
+      "raster_height": 2048,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "untagged; treated as sRGB for this analysis (not independently verified)",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#F8F9FA",
+          "pixel_count": 505831
+        },
+        {
+          "hex": "#EDF0F3",
+          "pixel_count": 369187
+        },
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 94885
+        },
+        {
+          "hex": "#FDECED",
+          "pixel_count": 40338
+        },
+        {
+          "hex": "#EBFEFC",
+          "pixel_count": 39623
+        },
+        {
+          "hex": "#F8F0F7",
+          "pixel_count": 39326
+        },
+        {
+          "hex": "#F5F5F5",
+          "pixel_count": 38839
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 14550
+        },
+        {
+          "hex": "#EEF1F4",
+          "pixel_count": 3737
+        },
+        {
+          "hex": "#F0F3F5",
+          "pixel_count": 2715
+        },
+        {
+          "hex": "#F7F8F9",
+          "pixel_count": 2610
+        },
+        {
+          "hex": "#F7989D",
+          "pixel_count": 2465
+        }
+      ]
+    },
+    {
+      "filename": "windcreek-rewards-page-prime-tokens.png",
+      "original_sha256": "016512929a1c307e9ecfc72cad1a727e31d14822978e076d60695903ca226654",
+      "raster_width": 622,
+      "raster_height": 2048,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "untagged; treated as sRGB for this analysis (not independently verified)",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#EDF0F3",
+          "pixel_count": 461664
+        },
+        {
+          "hex": "#F8F9FA",
+          "pixel_count": 410856
+        },
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 157143
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 12718
+        },
+        {
+          "hex": "#EEF1F4",
+          "pixel_count": 3732
+        },
+        {
+          "hex": "#F1F3F5",
+          "pixel_count": 2844
+        },
+        {
+          "hex": "#FDECED",
+          "pixel_count": 2599
+        },
+        {
+          "hex": "#F0F2F5",
+          "pixel_count": 2536
+        },
+        {
+          "hex": "#F7F8F9",
+          "pixel_count": 2095
+        },
+        {
+          "hex": "#EBFEFC",
+          "pixel_count": 2025
+        },
+        {
+          "hex": "#F7989D",
+          "pixel_count": 2015
+        },
+        {
+          "hex": "#F5F5F5",
+          "pixel_count": 1956
+        }
+      ]
+    },
+    {
+      "filename": "sign-in_button.png",
+      "original_sha256": "ba0e372f53c4cbae7f9f935c86c05288a79720750ab8b231cf5deaf5fc086c15",
+      "raster_width": 614,
+      "raster_height": 252,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "embedded Display profile converted to sRGB using Pillow/LittleCMS",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 145710
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 4026
+        },
+        {
+          "hex": "#C33331",
+          "pixel_count": 614
+        },
+        {
+          "hex": "#F1D8D7",
+          "pixel_count": 613
+        },
+        {
+          "hex": "#495057",
+          "pixel_count": 354
+        },
+        {
+          "hex": "#D49997",
+          "pixel_count": 303
+        },
+        {
+          "hex": "#B75956",
+          "pixel_count": 303
+        },
+        {
+          "hex": "#C77A78",
+          "pixel_count": 302
+        },
+        {
+          "hex": "#C57674",
+          "pixel_count": 302
+        },
+        {
+          "hex": "#BDBFC2",
+          "pixel_count": 178
+        },
+        {
+          "hex": "#565C63",
+          "pixel_count": 177
+        },
+        {
+          "hex": "#BD6864",
+          "pixel_count": 113
+        }
+      ]
+    },
+    {
+      "filename": "sign-in_button_hover-effect.png",
+      "original_sha256": "0ec2484e5fd07aa4dd486dc3234a7c229a66ba2d6f1f88af49213fcd8872ee1e",
+      "raster_width": 614,
+      "raster_height": 252,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "embedded Display profile converted to sRGB using Pillow/LittleCMS",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 132097
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 6115
+        },
+        {
+          "hex": "#FEFEFE",
+          "pixel_count": 2362
+        },
+        {
+          "hex": "#FDFDFD",
+          "pixel_count": 632
+        },
+        {
+          "hex": "#C33331",
+          "pixel_count": 614
+        },
+        {
+          "hex": "#F1D8D7",
+          "pixel_count": 613
+        },
+        {
+          "hex": "#FCFCFC",
+          "pixel_count": 581
+        },
+        {
+          "hex": "#FAFAFA",
+          "pixel_count": 543
+        },
+        {
+          "hex": "#F8F8F8",
+          "pixel_count": 533
+        },
+        {
+          "hex": "#F6F6F6",
+          "pixel_count": 529
+        },
+        {
+          "hex": "#F3F3F3",
+          "pixel_count": 521
+        },
+        {
+          "hex": "#EFEFEF",
+          "pixel_count": 499
+        }
+      ]
+    },
+    {
+      "filename": "find-a-job_button.png",
+      "original_sha256": "6a50f95d7a23223140c973df4c29c5275108f2e41b42892dbae8d5208209ca61",
+      "raster_width": 614,
+      "raster_height": 220,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "embedded Display profile converted to sRGB using Pillow/LittleCMS",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 97357
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 6118
+        },
+        {
+          "hex": "#A42B29",
+          "pixel_count": 653
+        },
+        {
+          "hex": "#A32B28",
+          "pixel_count": 637
+        },
+        {
+          "hex": "#630213",
+          "pixel_count": 406
+        },
+        {
+          "hex": "#80151D",
+          "pixel_count": 390
+        },
+        {
+          "hex": "#640213",
+          "pixel_count": 376
+        },
+        {
+          "hex": "#600112",
+          "pixel_count": 374
+        },
+        {
+          "hex": "#620112",
+          "pixel_count": 351
+        },
+        {
+          "hex": "#85181E",
+          "pixel_count": 350
+        },
+        {
+          "hex": "#7A121B",
+          "pixel_count": 346
+        },
+        {
+          "hex": "#7C131C",
+          "pixel_count": 339
+        }
+      ]
+    },
+    {
+      "filename": "find-a-job_button_hover-effect.png",
+      "original_sha256": "92638cb8869173fe4fc97a6b5b08486680646056f0829d526a22b4bcabdf46c1",
+      "raster_width": 614,
+      "raster_height": 220,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "embedded Display profile converted to sRGB using Pillow/LittleCMS",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 86710
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 2745
+        },
+        {
+          "hex": "#FEFEFE",
+          "pixel_count": 2355
+        },
+        {
+          "hex": "#822221",
+          "pixel_count": 1714
+        },
+        {
+          "hex": "#FDFDFD",
+          "pixel_count": 622
+        },
+        {
+          "hex": "#FCFCFC",
+          "pixel_count": 572
+        },
+        {
+          "hex": "#FAFAFA",
+          "pixel_count": 534
+        },
+        {
+          "hex": "#F8F8F8",
+          "pixel_count": 524
+        },
+        {
+          "hex": "#F6F6F6",
+          "pixel_count": 520
+        },
+        {
+          "hex": "#F3F3F3",
+          "pixel_count": 512
+        },
+        {
+          "hex": "#EFEFEF",
+          "pixel_count": 490
+        },
+        {
+          "hex": "#EBEBEB",
+          "pixel_count": 470
+        }
+      ]
+    },
+    {
+      "filename": "contact-us_button.png",
+      "original_sha256": "31dc9f13d811f20554c8c9a5616c29965f8201e1c321e703430bb8ce020653a0",
+      "raster_width": 520,
+      "raster_height": 196,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "embedded Display profile converted to sRGB using Pillow/LittleCMS",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 98395
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 2083
+        },
+        {
+          "hex": "#BC6360",
+          "pixel_count": 67
+        },
+        {
+          "hex": "#E5C0BE",
+          "pixel_count": 38
+        },
+        {
+          "hex": "#B34F4D",
+          "pixel_count": 33
+        },
+        {
+          "hex": "#A32C2A",
+          "pixel_count": 32
+        },
+        {
+          "hex": "#E9CBC9",
+          "pixel_count": 32
+        },
+        {
+          "hex": "#E7C4C2",
+          "pixel_count": 31
+        },
+        {
+          "hex": "#B55351",
+          "pixel_count": 30
+        },
+        {
+          "hex": "#E1B6B5",
+          "pixel_count": 29
+        },
+        {
+          "hex": "#B85B58",
+          "pixel_count": 29
+        },
+        {
+          "hex": "#E3BDBB",
+          "pixel_count": 28
+        }
+      ]
+    },
+    {
+      "filename": "contact-us_button_hover-effect.png",
+      "original_sha256": "460b42c8be9e648cc7351bf0e56e164b04617ba870d0fccd0c0e698322d14eab",
+      "raster_width": 520,
+      "raster_height": 196,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "embedded Display profile converted to sRGB using Pillow/LittleCMS",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 59484
+        },
+        {
+          "hex": "#EEF0F3",
+          "pixel_count": 37979
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 2083
+        },
+        {
+          "hex": "#F1F3F5",
+          "pixel_count": 343
+        },
+        {
+          "hex": "#F3F4F6",
+          "pixel_count": 343
+        },
+        {
+          "hex": "#F7F8F9",
+          "pixel_count": 108
+        },
+        {
+          "hex": "#FCFCFD",
+          "pixel_count": 107
+        },
+        {
+          "hex": "#B85F5D",
+          "pixel_count": 67
+        },
+        {
+          "hex": "#B55856",
+          "pixel_count": 42
+        },
+        {
+          "hex": "#D9B6B6",
+          "pixel_count": 38
+        },
+        {
+          "hex": "#B04D4C",
+          "pixel_count": 33
+        },
+        {
+          "hex": "#A32C2A",
+          "pixel_count": 32
+        }
+      ]
+    },
+    {
+      "filename": "about-us_menu_hover.png",
+      "original_sha256": "cc421d955788a76d38f6e74f7defb4657d110793d7e0b852ec2248ae63efd86b",
+      "raster_width": 1040,
+      "raster_height": 630,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "embedded Display profile converted to sRGB using Pillow/LittleCMS",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#F8F9FA",
+          "pixel_count": 314667
+        },
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 259305
+        },
+        {
+          "hex": "#F7F8F9",
+          "pixel_count": 2080
+        },
+        {
+          "hex": "#495057",
+          "pixel_count": 1420
+        },
+        {
+          "hex": "#585F66",
+          "pixel_count": 1245
+        },
+        {
+          "hex": "#EFF0F1",
+          "pixel_count": 1062
+        },
+        {
+          "hex": "#E8E8E9",
+          "pixel_count": 1048
+        },
+        {
+          "hex": "#EAEBEC",
+          "pixel_count": 1045
+        },
+        {
+          "hex": "#E5E6E7",
+          "pixel_count": 1044
+        },
+        {
+          "hex": "#D6D7D8",
+          "pixel_count": 1040
+        },
+        {
+          "hex": "#E0E1E1",
+          "pixel_count": 1040
+        },
+        {
+          "hex": "#E4E4E5",
+          "pixel_count": 1040
+        }
+      ]
+    },
+    {
+      "filename": "about-us_menu_open.png",
+      "original_sha256": "8a62b21483823f0445486a84ed6a71e603b29ec4b183dcbf4ee0a5cf3a48cc8b",
+      "raster_width": 1040,
+      "raster_height": 630,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "embedded Display profile converted to sRGB using Pillow/LittleCMS",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#F8F9FA",
+          "pixel_count": 280314
+        },
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 251953
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 16970
+        },
+        {
+          "hex": "#EEF0F3",
+          "pixel_count": 6565
+        },
+        {
+          "hex": "#EFF1F4",
+          "pixel_count": 5640
+        },
+        {
+          "hex": "#F0F2F4",
+          "pixel_count": 4307
+        },
+        {
+          "hex": "#EACBCA",
+          "pixel_count": 3232
+        },
+        {
+          "hex": "#585F66",
+          "pixel_count": 2850
+        },
+        {
+          "hex": "#F0F2F5",
+          "pixel_count": 2683
+        },
+        {
+          "hex": "#F0F1F4",
+          "pixel_count": 2205
+        },
+        {
+          "hex": "#CED4DA",
+          "pixel_count": 2046
+        },
+        {
+          "hex": "#EFF1F3",
+          "pixel_count": 1655
+        }
+      ]
+    },
+    {
+      "filename": "selected_text_field.png",
+      "original_sha256": "a0c3ab5bdd7b368964d72b90b3102d71afaae0ad4ae674709edfaab74031ff32",
+      "raster_width": 1954,
+      "raster_height": 458,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "embedded Display profile converted to sRGB using Pillow/LittleCMS",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 580972
+        },
+        {
+          "hex": "#EEF0F3",
+          "pixel_count": 212983
+        },
+        {
+          "hex": "#EACBCA",
+          "pixel_count": 15028
+        },
+        {
+          "hex": "#A32B29",
+          "pixel_count": 10709
+        },
+        {
+          "hex": "#EFF1F4",
+          "pixel_count": 5840
+        },
+        {
+          "hex": "#ACB5BD",
+          "pixel_count": 3271
+        },
+        {
+          "hex": "#D19494",
+          "pixel_count": 2905
+        },
+        {
+          "hex": "#F6F7F8",
+          "pixel_count": 1986
+        },
+        {
+          "hex": "#F5F6F8",
+          "pixel_count": 1672
+        },
+        {
+          "hex": "#686E74",
+          "pixel_count": 1509
+        },
+        {
+          "hex": "#F1F3F5",
+          "pixel_count": 1405
+        },
+        {
+          "hex": "#F0F2F4",
+          "pixel_count": 1401
+        }
+      ]
+    },
+    {
+      "filename": "windcreek-about-page-image-background.jpg",
+      "original_sha256": "086ef25d3dba482a0588940532b77c2503240315409e034895ef1feda531a063",
+      "raster_width": 1500,
+      "raster_height": 1500,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "untagged; treated as sRGB for this analysis (not independently verified)",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#680200",
+          "pixel_count": 160669
+        },
+        {
+          "hex": "#640000",
+          "pixel_count": 110819
+        },
+        {
+          "hex": "#6C0300",
+          "pixel_count": 109036
+        },
+        {
+          "hex": "#660202",
+          "pixel_count": 81983
+        },
+        {
+          "hex": "#680102",
+          "pixel_count": 69311
+        },
+        {
+          "hex": "#710302",
+          "pixel_count": 57784
+        },
+        {
+          "hex": "#6F0100",
+          "pixel_count": 57681
+        },
+        {
+          "hex": "#600200",
+          "pixel_count": 55831
+        },
+        {
+          "hex": "#6A0000",
+          "pixel_count": 48788
+        },
+        {
+          "hex": "#820201",
+          "pixel_count": 36501
+        },
+        {
+          "hex": "#740300",
+          "pixel_count": 36210
+        },
+        {
+          "hex": "#870203",
+          "pixel_count": 33220
+        }
+      ]
+    },
+    {
+      "filename": "windcreek-meeting-drawing-1.png",
+      "original_sha256": "2364e71860407f585cf318c8a38f8dbe4791c5b0c3662e5b8c0f948c777e225c",
+      "raster_width": 2048,
+      "raster_height": 1272,
+      "source_viewport": null,
+      "source_capture_time": null,
+      "color_handling": "untagged; treated as sRGB for this analysis (not independently verified)",
+      "top_rgb_colors_after_handling": [
+        {
+          "hex": "#FFFFFF",
+          "pixel_count": 2463782
+        },
+        {
+          "hex": "#1E1E1E",
+          "pixel_count": 30054
+        },
+        {
+          "hex": "#E03130",
+          "pixel_count": 14274
+        },
+        {
+          "hex": "#FEFEFE",
+          "pixel_count": 4865
+        },
+        {
+          "hex": "#2F9E44",
+          "pixel_count": 2717
+        },
+        {
+          "hex": "#313131",
+          "pixel_count": 2199
+        },
+        {
+          "hex": "#1F1F1F",
+          "pixel_count": 1961
+        },
+        {
+          "hex": "#484848",
+          "pixel_count": 1686
+        },
+        {
+          "hex": "#424242",
+          "pixel_count": 1682
+        },
+        {
+          "hex": "#282828",
+          "pixel_count": 1681
+        },
+        {
+          "hex": "#ECECEC",
+          "pixel_count": 1676
+        },
+        {
+          "hex": "#CECECE",
+          "pixel_count": 1648
+        }
+      ]
+    }
+  ]
+}
