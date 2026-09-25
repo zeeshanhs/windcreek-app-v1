@@ -1,6 +1,6 @@
 # AskPat operational prototype
 
-AskPat is a **fictional, browser-local** Wind Creek Hospitality prototype for service orders and personal AI conversations. It implements the WCAP-001 screen specification as a connected Next.js 16 App Router application. No real employee accounts, property records, HotSOS calls, AI inference, equipment diagnosis, source retrieval, image recognition, or document ingestion are connected.
+AskPat is a **fictional** Wind Creek Hospitality prototype for service orders and personal AI conversations. The current screens use browser-local IndexedDB. A separate repository-local SQLite foundation is available for the next implementation stages but is not connected to the screens yet. No real employee accounts, property records, HotSOS calls, AI inference, equipment diagnosis, source retrieval, image recognition, or document ingestion are connected.
 
 ## Run locally
 
@@ -45,7 +45,11 @@ Each demo account has an **AHU-15 Drops Off the BMS** general chat in the normal
 
 Six orders and Morgan's five WCAP-001 chats are seeded, plus one AHU-15 general chat for each account. Sam also has his own SO #1042 chat. Avery can create SO #1043 and a distinct linked chat. Order status is only Open or Closed; closing does not end a conversation or prove a repair.
 
-Committed demo records live in this browser's IndexedDB and remain across route changes, account switches, and reloads. **Reset demo** in the account menu restores the initial fixture. Open tabs are notified of committed changes, and each write rechecks the local store. Other browsers and devices have separate data. Browser storage can be cleared or unavailable; there is no server-side persistence, production authorization, or cross-device synchronization.
+Committed UI records live in this browser's IndexedDB and remain across route changes, account switches, and reloads. **Reset demo** in the account menu restores the initial fixture. Open tabs are notified of committed changes, and each write rechecks the local store. Other browsers and devices have separate data. Browser storage can be cleared or unavailable; the current UI has no server-side persistence, production authorization, or cross-device synchronization.
+
+## SQLite foundation for WCAP-004
+
+After `npm ci`, run `npm run db:setup` to create and migrate the ignored `.local/askpat.sqlite` file and seed the relational baseline. `npm run db:seed` is repeatable without replacing later SQL records; `npm run db:reset` explicitly restores the SQL baseline. These commands do not affect browser IndexedDB. See [local persistence](docs/PERSISTENCE.md) for the schema, DTO and repository entry points, `DATABASE_FILE` override, durability limits, and PostgreSQL migration path.
 
 The demonstration clock begins at 24 Sep 2026, 10:30 UTC and advances deterministically with actions. Answers and sources are scripted training specimens. A sent photo remains a local chat attachment and is not uploaded to a knowledge base. The photo control accepts one PNG or JPEG up to 10 MB per message.
 
@@ -60,7 +64,7 @@ npx tsc --noEmit
 npm run build
 ```
 
-`npm test` exercises the core fixture, idempotent order creation/closure/remarks, linked-chat identity, and grounded response rules. Browser inspection is still required for responsive layout, dialogs, keyboard behavior, and the full AT-01–AT-38 acceptance scenarios.
+`npm test` exercises the existing browser-domain logic plus temporary SQLite migration, seed, repository, ownership, photo, receipt, and reset behavior. Browser inspection is still required for responsive layout, dialogs, keyboard behavior, and the full AT-01–AT-38 acceptance scenarios.
 
 ## Production dependencies
 

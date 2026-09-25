@@ -1,6 +1,6 @@
 # Contributing to Wind Creek App
 
-This repository is a Next.js 16 App Router and TypeScript starter with a working Wind Creek brand kit. The rendered app still shows the generated Next.js page. Product screens and integrations should be added from an explicit task or specification, with assumptions kept visible.
+This repository is a Next.js 16 App Router and TypeScript AskPat prototype with a working Wind Creek brand kit. The current UI uses browser IndexedDB; a separate SQLite foundation is documented in [PERSISTENCE.md](PERSISTENCE.md). Product integrations should be added from an explicit task or specification, with assumptions kept visible.
 
 ## Start locally
 
@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open `http://localhost:3000`. The available scripts are `dev`, `build`, `start`, and `lint` in `package.json`; there is no test script yet. Do not mix package managers or regenerate `package-lock.json` without a dependency change.
+Open `http://localhost:3000`. `package.json` also provides `test` and explicit `db:*` commands. Do not mix package managers or regenerate `package-lock.json` without a dependency change.
 
 Before using a Next.js API or file convention, read the relevant page in `node_modules/next/dist/docs/01-app/`. This installed version may differ from examples found elsewhere. In particular, `npm run lint` invokes ESLint directly; `next lint` is not used in Next.js 16.
 
@@ -20,6 +20,8 @@ Before using a Next.js API or file convention, read the relevant page in `node_m
 | Path | Purpose |
 | --- | --- |
 | `app/` | App Router pages, layouts, route-specific UI, metadata, and global styles. |
+| `lib/askpat/contracts/` | Validated domain and screen DTOs, plus the database-neutral repository port. |
+| `lib/askpat/persistence/sqlite/`, `drizzle/` | SQLite adapter, schema, seed, and versioned migrations. |
 | `public/` | Static files intentionally served by the app. Current Next.js sample files remain here. |
 | `brand-kit/` | Working brand decisions, CSS tokens, evidence, and asset inventory. Start at `kit.yaml`. |
 | `_PROJECT/tasks/` | Task-specific requests, specifications, and inputs when supplied. These may be untracked work in progress. |
@@ -43,6 +45,7 @@ When using artwork, prefer supplied source files over extracting shapes from ref
 Run the checks that apply to the change:
 
 ```bash
+npm test
 npm run lint
 npx tsc --noEmit
 npm run build
