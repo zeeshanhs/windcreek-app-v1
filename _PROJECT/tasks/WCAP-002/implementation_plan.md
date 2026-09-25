@@ -1,5 +1,7 @@
 # WCAP-002 implementation plan — scripted AHU-15 scenario
 
+> **Follow-up product decision:** The user's later request supersedes this plan's read-only, separate-page integration. AHU-15 now appears as a user-owned general chat in `/chats`, with the normal composer and browser-local follow-up messages. The authored opening and citation viewer remain source-controlled. `/scenarios/ahu-15` redirects to the chat. See [`implementation_handoff.md`](implementation_handoff.md) for the delivered behavior and verification.
+
 ## Objective and authority
 
 Implement [`refined_task_request.md`](refined_task_request.md) in the current Next.js 16 AskPat prototype. The deliverable is a read-only, preloaded conversation at `/scenarios/ahu-15`, discoverable from `/chats`, with six working inline citation targets and a full-page, zoomable JPEG viewer. The source transcript, ticket summary, and supplied citation images are in [`inputs/`](inputs/). The refined request governs scope and acceptance; keep WCAP-001 personal chat and service-order behavior unchanged.

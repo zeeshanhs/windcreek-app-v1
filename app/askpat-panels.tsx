@@ -17,7 +17,8 @@ export default function Panels({ pathname, panel, sourceId, locator }: { pathnam
   const order = state.orders.find((item) => item.id === orderId);
   const isChatRoute = pathname.startsWith("/chats/") || pathname === "/chats";
   if (!panel) return null;
-  if (panel === "citation" && pathname === "/scenarios/ahu-15") return <CitationViewer key={search.get("citation") ?? "invalid"} citationValue={search.get("citation")} />;
+  if (pathname === "/scenarios/ahu-15") return null;
+  if (panel === "citation" && chat?.scenarioId === "ahu-15") return <CitationViewer key={search.get("citation") ?? "invalid"} citationValue={search.get("citation")} />;
   if (panel === "order" && order && chat) return <Dialog title="ORDER INFORMATION" onClose={closePanel}><OrderInfo order={order} anchor={sourceId} /></Dialog>;
   if (panel === "close-order" && order) return search.get("simulate") === "order-context-failed" && order.status === "open"
     ? <Dialog title="CLOSE SERVICE ORDER" onClose={closePanel}><p>Order information couldn&apos;t be refreshed. The last loaded state was Open. Return to the conversation and retry context before closing.</p></Dialog>

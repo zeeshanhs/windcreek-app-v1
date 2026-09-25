@@ -32,18 +32,18 @@ The form is a UI simulation. Do not enter real credentials. The active demo user
 | `/chats` | Personal mixed general and order-linked chat list |
 | `/chats/new` | Unsaved general-chat draft; first send saves it |
 | `/chats/:chatId` | One user-owned conversation |
-| `/scenarios/ahu-15` | Read-only scripted AHU-15 conversation with six drawing citations |
+| `/scenarios/ahu-15` | Redirects to the signed-in user's AHU-15 general chat, preserving citation query parameters |
 | `/orders` | Shared fictional service-order queue |
 | `/orders/new` | Guided order creation |
 | `/orders/:orderId` | Selected order, remarks, history, chat and closure actions |
 
 Dialogs use the parent URL with `?panel=order`, `?panel=close-order`, `?panel=photo`, or `?panel=source&sourceId=…`. Browser Back dismisses an opened dialog. The source viewer presents the authored DF-S01/02/03 training text where available. The referenced `ahu1-points.pdf` is absent and has an unavailable state.
 
-The **AHU-15 scripted scenario** link on `/chats` opens a separate example; it is not part of anyone's personal chats or service orders and is unaffected by **Reset demo**. Inline markers `[1]`–`[6]` open supplied full-page JPEG drawings at `/scenarios/ahu-15?panel=citation&citation=N`. The viewer supports Fit page, zoom buttons, and two-axis panning on enlarged pages, including phones. It does not highlight a cited region. The final “Logged” line and ticket summary are authored scenario text; viewing them creates no ticket. The JPEGs are served from `public/scenarios/ahu-15/` and therefore have direct static URLs. The demo sign-in gate is not server-side authorization for those files.
+Each demo account has an **AHU-15 Drops Off the BMS** general chat in the normal chat list and General filter, with no service order attached. Its Marcus/AskPat opening and ticket summary are source-controlled scripted content. New follow-up messages and their bounded demo answers use the regular composer and are saved to that account's browser-local chat. They do not contact a BMS or create a ticket; the authored “Logged” line does not report a real action. Reset demo clears follow-ups and restores the initial chat. Existing browser data is migrated once to add the chat without replacing other records. Inline markers `[1]`–`[6]` open the supplied full-page JPEG drawings at `/chats/:chatId?panel=citation&citation=N`. The viewer supports Fit page, zoom buttons, and two-axis panning on enlarged pages, including phones. It does not highlight a cited region. The JPEGs are served from `public/scenarios/ahu-15/` and therefore have direct static URLs. The demo sign-in gate is not server-side authorization for those files.
 
 ## Demo data and reset
 
-Six orders and Morgan's five chats are seeded from the WCAP-001 specification. Sam has his own SO #1042 chat. Avery can create SO #1043 and a distinct linked chat. Order status is only Open or Closed; closing does not end a conversation or prove a repair.
+Six orders and Morgan's five WCAP-001 chats are seeded, plus one AHU-15 general chat for each account. Sam also has his own SO #1042 chat. Avery can create SO #1043 and a distinct linked chat. Order status is only Open or Closed; closing does not end a conversation or prove a repair.
 
 Committed demo records live in this browser's IndexedDB and remain across route changes, account switches, and reloads. **Reset demo** in the account menu restores the initial fixture. Open tabs are notified of committed changes, and each write rechecks the local store. Other browsers and devices have separate data. Browser storage can be cleared or unavailable; there is no server-side persistence, production authorization, or cross-device synchronization.
 

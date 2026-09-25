@@ -7,11 +7,10 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { AskPatContext, type StagedPhoto } from "./askpat-context";
 import { demoAnswer } from "@/lib/askpat/responses";
 import { readState, resetDemo, sendMessage, appendAnswer, recordUnknownFault, subscribe } from "@/lib/askpat/store";
-import { users, type DemoState, type Reference, type User } from "@/lib/askpat/fixtures";
+import { scenarioChatId, users, type DemoState, type Reference, type User } from "@/lib/askpat/fixtures";
 import ChatsView from "./askpat-chats";
 import OrdersView from "./askpat-orders";
 import Panels from "./askpat-panels";
-import ScenarioView from "./scenarios/ahu-15/scenario-view";
 
 const SESSION_KEY = "askpat-demo-user";
 const INTENDED_KEY = "askpat-intended-route";
@@ -71,13 +70,14 @@ export default function AskPatApp() {
       sessionStorage.setItem(INTENDED_KEY, `${pathname}${search.toString() ? `?${search}` : ""}`);
       router.replace("/login");
     } else if (user && pathname === "/") router.replace("/chats");
+    else if (user && pathname === "/scenarios/ahu-15") router.replace(`/chats/${scenarioChatId(user.id)}${search.toString() ? `?${search}` : ""}`, { scroll: false });
   }, [ready, user, pathname, search, router]);
 
   const navigate = useCallback((path: string, replace = false) => { if (replace) router.replace(path); else router.push(path); }, [router]);
   const openPanel = useCallback((panel: string, sourceId?: string, locator?: string) => {
     const params = new URLSearchParams(search.toString());
     params.set("panel", panel);
-    if (panel === "citation" && pathname === "/scenarios/ahu-15") {
+    if (panel === "citation" && state?.chats.some((chat) => chat.ownerId === user?.id && chat.scenarioId === "ahu-15" && pathname === `/chats/${chat.id}`)) {
       if (sourceId) params.set("citation", sourceId);
       params.delete("sourceId");
     } else {
@@ -87,7 +87,7 @@ export default function AskPatApp() {
     if (locator) params.set("locator", locator); else params.delete("locator");
     openedPanel.current = true;
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
-  }, [pathname, router, search]);
+  }, [pathname, router, search, state, user]);
   const closePanel = useCallback(() => {
     if (openedPanel.current) { openedPanel.current = false; router.back(); }
     else router.replace(pathname, { scroll: false });
@@ -168,7 +168,7 @@ export default function AskPatApp() {
       <div className="account-area"><span className="property-label">Training property</span><details ref={accountMenuRef} className="account-menu"><summary><span className="avatar">{user.initials}</span><span>{user.name} <small>· {user.role}</small></span></summary><div className="account-popup"><strong>{user.name}</strong><span>{user.email}</span><span>{user.role}</span><button type="button" onClick={async () => { sessionEpoch.current += 1; await resetDemo(); pendingSendIds.current = {}; sendingNow.current.clear(); setSendErrors({}); setWaitingChats({}); setAnswerFailures({}); setDrafts({}); setStaged({}); accountMenuRef.current?.removeAttribute("open"); setNotice("Demo reset to its original records."); }}>Reset demo</button><button type="button" onClick={() => { signingOut.current = true; sessionEpoch.current += 1; sessionStorage.removeItem(SESSION_KEY); sessionStorage.removeItem(INTENDED_KEY); pendingSendIds.current = {}; sendingNow.current.clear(); setSendErrors({}); setWaitingChats({}); setAnswerFailures({}); setUser(null); setDrafts({}); setStaged({}); router.replace("/login?reason=signed-out"); }}>Sign out</button></div></details></div>
     </header>
     {notice && <div className="app-notice" role="status">{notice}<button type="button" aria-label="Dismiss message" onClick={() => setNotice("")}>×</button></div>}
-    {pathname.startsWith("/orders") ? <OrdersView pathname={pathname} /> : pathname.startsWith("/chats") ? <ChatsView pathname={pathname} busy={busy} /> : pathname === "/scenarios/ahu-15" ? <ScenarioView /> : <main className="loading-screen">This page isn&apos;t available. <Link href="/chats">Go to your chats</Link></main>}
+    {pathname.startsWith("/orders") ? <OrdersView pathname={pathname} /> : pathname.startsWith("/chats") ? <ChatsView pathname={pathname} busy={busy} /> : pathname === "/scenarios/ahu-15" ? <main className="loading-screen" role="status">Opening AHU-15 chat…</main> : <main className="loading-screen">This page isn&apos;t available. <Link href="/chats">Go to your chats</Link></main>}
     <Panels pathname={pathname} panel={search.get("panel")} sourceId={search.get("sourceId")} locator={search.get("locator")} />
   </AskPatContext.Provider>;
 }

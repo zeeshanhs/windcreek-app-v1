@@ -5,9 +5,9 @@ export type Remark = { id: string; authorId: string; text: string; at: string };
 export type OrderEvent = { id: string; kind: "created" | "remark" | "closed"; actorId: string; at: string; text?: string };
 export type Order = { id: string; issueId: string; locationId: string; requesterId: string; createdAt: string; status: "open" | "closed"; version: number; equipment?: string; remarks: Remark[]; events: OrderEvent[]; closure?: { actorId: string; at: string; note: string } };
 export type Photo = { id: string; name: string; type: string; size: number; blob: Blob; description: string };
-export type Reference = { kind: "source" | "remark" | "status"; id: string; label: string; locator?: string };
+export type Reference = { kind: "source" | "remark" | "status" | "citation"; id: string; label: string; locator?: string };
 export type Message = { id: string; chatId: string; author: "user" | "assistant"; text: string; at: string; status: "sent" | "sending" | "failed"; references?: Reference[]; photoId?: string };
-export type Chat = { id: string; ownerId: string; orderId: string | null; title: string; equipment?: string; createdAt: string; updatedAt: string; messages: Message[] };
+export type Chat = { id: string; ownerId: string; orderId: string | null; title: string; equipment?: string; scenarioId?: "ahu-15"; createdAt: string; updatedAt: string; messages: Message[] };
 export type Fault = { id: string; chatId: string; equipment: string; code: string; at: string; messageId: string; photoId?: string };
 export type DemoState = { users: User[]; orders: Order[]; chats: Chat[]; photos: Photo[]; faults: Fault[]; receipts: Record<string, string>; sequence: number; clock: string };
 
@@ -49,6 +49,23 @@ const refs = {
 const msg = (chatId: string, suffix: string, author: "user" | "assistant", text: string, time: string, references?: Reference[]): Message => ({ id: `${chatId}-${suffix}`, chatId, author, text, at: time, status: "sent", references });
 const chat = (id: string, ownerId: string, orderId: string | null, title: string, equipment: string | undefined, updatedAt: string, messages: Message[]): Chat => ({ id, ownerId, orderId, title, equipment, createdAt: messages[0]?.at ?? updatedAt, updatedAt, messages });
 
+export const scenarioChatId = (ownerId: string) => `CH-AHU15-${ownerId}`;
+export const scenarioChat = (ownerId: string): Chat => ({
+  id: scenarioChatId(ownerId), ownerId, orderId: null, scenarioId: "ahu-15",
+  title: "AHU-15 Drops Off the BMS", equipment: "AHU-15",
+  createdAt: at(24, "10:29"), updatedAt: at(24, "10:29"), messages: [],
+});
+
+export function ensureScenarioChats(state: DemoState): boolean {
+  let added = false;
+  for (const user of users) {
+    if (state.chats.some((item) => item.id === scenarioChatId(user.id))) continue;
+    state.chats.push(scenarioChat(user.id));
+    added = true;
+  }
+  return added;
+}
+
 export function initialState(): DemoState {
   return {
     users: structuredClone(users),
@@ -61,6 +78,7 @@ export function initialState(): DemoState {
       order("1037", "ISS-D06", "LOC-D06", "USR-J", at(22, "10:00"), "Please review the reported fan issue in the lobby service area.", "SF-D03", undefined, { actorId: "USR-S", at: at(22, "11:00"), note: "Duplicate report. The related report remains with the external operations team." }),
     ],
     chats: [
+      ...users.map((user) => scenarioChat(user.id)),
       chat("CH-D01", "USR-M", "1042", "AHU-D01 airflow question", "AHU-D01", at(24, "10:20"), [
         msg("CH-D01", "M1", "user", "Which unit serves Conference Room C?", at(24, "10:16")),
         msg("CH-D01", "M2", "assistant", "AHU-D01 is listed as serving Conference Room C in the demo equipment register. The order reports low airflow; that report does not establish the cause.", at(24, "10:16"), [refs.register]),

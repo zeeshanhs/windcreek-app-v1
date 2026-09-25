@@ -2,7 +2,7 @@
 require("./register-ts.cjs");
 const test = require("node:test");
 const assert = require("node:assert/strict");
-const { initialState } = require("../lib/askpat/fixtures.ts");
+const { ensureScenarioChats, initialState, scenarioChatId } = require("../lib/askpat/fixtures.ts");
 const { applyCreateOrder, applyCloseOrder, applyAddRemark, applyLinkedChat, nextTimestamp, AlreadyClosedError, VersionConflictError } = require("../lib/askpat/model.ts");
 const { demoAnswer } = require("../lib/askpat/responses.ts");
 
@@ -10,11 +10,11 @@ test("seed has the required order and user-scoped chat relationships", () => {
   const state = initialState();
   assert.deepEqual(state.orders.map((order) => order.id), ["1042", "1041", "1040", "1039", "1038", "1037"]);
   assert.equal(state.orders.filter((order) => order.status === "open").length, 4);
-  assert.equal(state.chats.filter((chat) => chat.ownerId === "USR-M").length, 5);
+  assert.equal(state.chats.filter((chat) => chat.ownerId === "USR-M").length, 6);
   assert.equal(state.chats.find((chat) => chat.id === "CH-D01").messages.length, 4);
   assert.equal(state.chats.find((chat) => chat.id === "CH-D01").orderId, "1042");
   assert.equal(state.chats.find((chat) => chat.id === "CH-S01").ownerId, "USR-S");
-  assert.equal(state.chats.filter((chat) => chat.ownerId === "USR-M" && !chat.orderId).length, 2);
+  assert.equal(state.chats.filter((chat) => chat.ownerId === "USR-M" && !chat.orderId).length, 3);
 });
 
 test("create validates fields and returns the same SO 1043 for an operation retry", () => {
@@ -38,7 +38,34 @@ test("linked chat identity is per user and order, while general chats remain dis
   assert.equal(morgan, "CH-D01"); assert.equal(sam, "CH-S01");
   assert.notEqual(avery, morgan);
   assert.equal(state.chats.filter((chat) => chat.ownerId === "USR-A" && chat.orderId === "1042").length, 1);
-  assert.equal(state.chats.filter((chat) => chat.ownerId === "USR-M" && chat.orderId === null).length, 2);
+  assert.equal(state.chats.filter((chat) => chat.ownerId === "USR-M" && chat.orderId === null).length, 3);
+});
+
+test("scenario chat migrates into existing demo data once per user without an order", () => {
+  const state = initialState();
+  state.chats = state.chats.filter((chat) => !chat.scenarioId);
+  assert.equal(ensureScenarioChats(state), true);
+  assert.equal(ensureScenarioChats(state), false);
+  for (const user of state.users) {
+    const matching = state.chats.filter((chat) => chat.id === scenarioChatId(user.id));
+    assert.equal(matching.length, 1);
+    assert.equal(matching[0].ownerId, user.id);
+    assert.equal(matching[0].orderId, null);
+    assert.equal(matching[0].scenarioId, "ahu-15");
+  }
+});
+
+test("AHU-15 follow-up answers stay within the scripted chat context", () => {
+  const state = initialState();
+  const chat = state.chats.find((item) => item.id === scenarioChatId("USR-M"));
+  const cause = demoAnswer("Why did the breaker trip?", chat, undefined);
+  assert.match(cause.text, /does not establish why/);
+  assert.deepEqual(cause.references.map((reference) => reference.id), ["3"]);
+  const fans = demoAnswer("Why are fans 3 and 4 off?", chat, undefined);
+  assert.deepEqual(fans.references.map((reference) => reference.id), ["1", "6"]);
+  const ticket = demoAnswer("Was a ticket logged?", chat, undefined);
+  assert.match(ticket.text, /no service order or ticket was created/);
+  assert.equal(ticket.references, undefined);
 });
 
 test("closure requires note and version, remains idempotent, and does not end chats", () => {

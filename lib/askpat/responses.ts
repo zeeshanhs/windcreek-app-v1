@@ -1,11 +1,28 @@
 import type { Chat, Order, Reference } from "./fixtures";
+import { citations, followUps, ticketSummary, type CitationId } from "../../app/scenarios/ahu-15/scenario-data";
 
 export type DemoAnswer = { text: string; references?: Reference[]; unknownCode?: { equipment: string; code: string } };
 const register: Reference = { kind: "source", id: "DF-S01", label: "Demo source · Training equipment register · Entry EQ-D01", locator: "EQ-D01" };
 const checklist = (step: number): Reference => ({ kind: "source", id: "DF-S03", label: `Demo source · Training identification checklist · Step ${step}`, locator: `Step ${step}` });
+const citation = (id: CitationId): Reference => ({ kind: "citation", id: String(id), label: `Citation [${id}] · ${citations[id].sheet} · PDF page ${citations[id].page}` });
+
+function scenarioAnswer(question: string, photoAttached: boolean): DemoAnswer {
+  const q = question.toLowerCase();
+  if (photoAttached) return { text: "This local demo cannot inspect a new photo of AHU-15. Describe the observation in text and verify it through your approved site process; the scripted drawings do not establish the current equipment condition." };
+  if (/why|cause|reason/.test(q) && /break|trip|power|outage/.test(q)) return { text: "The script confirms that HR2A3-27 was tripped and control power returned after one reset. It does not establish why the breaker tripped. The scripted follow-up calls for an electrician if it trips again; no current breaker state is available here.", references: [citation(3)] };
+  if (/fan|placeholder|point/.test(q) && /3|4|number|many|count|extra|unused/.test(q)) return { text: "The network drawing depicts four supply and four return fans, while the mechanical schedule calls for two per array. Marcus reports seeing only two per side. The script treats fan 3 and 4 points as likely template placeholders and asks controls support to verify and remove them from the graphic.", references: [citation(1), citation(6)] };
+  if (/ups|battery|replace battery/.test(q)) return { text: "Marcus reported On Battery lit and Replace Battery blinking on the SDU500 UPS. The scripted follow-up is to replace its battery; this chat cannot verify its present condition.", references: [citation(3)] };
+  if (/switch|network|cable|uplink|switch-x/.test(q)) return { text: "The network sheet labels AHU-15's uplink as “Switch-X,” so it does not identify the switch port. The script notes SW8 in IDF Room 224 and SW9 in IDF Room 213A, and says IT would need to trace the AHU-15 connection if required.", references: [citation(1), citation(2)] };
+  if (/start|sequence|smoke|freeze|safet|low limit/.test(q)) return { text: "The scripted sequence opens smoke and fire/smoke dampers, enables supply after a 30-second delay, then enables return once supply is running. It also notes that low limit switch #1 is manual reset and its alarm needs acknowledgement and reset at the FMCS. This is drawing context, not a live status check.", references: [citation(5)] };
+  if (/panel|controller|c019|module|transformer/.test(q)) return { text: "The script identifies AHU-15 as controller C019. Its panel drawing places TX1 in the AHU control panel and flags possible relocation to Electrical Room 217. After power returned, the script expected expansion modules at addresses 1–4 to respond; this chat cannot check them now.", references: [citation(3), citation(4)] };
+  if (/ticket|order|logged|follow.?up/.test(q)) return { text: `“Logged” is part of the authored transcript; no service order or ticket was created. Its three scripted follow-ups are: ${followUps.map((item, index) => `${index + 1}. ${item}`).join("; ")}.` };
+  if (/summar|what happened|status|resolved|recap/.test(q)) return { text: `${ticketSummary} This is the scripted incident record, not a live BMS reading or a service order.`, references: [citation(3), citation(4)] };
+  return { text: "I can answer from the scripted AHU-15 exchange and its six supplied drawing pages. Ask about the power loss, UPS, network connection, startup sequence, fan-count discrepancy, or scripted follow-ups. This local demo cannot inspect the current BMS or create a ticket." };
+}
 
 /** Deliberately narrow response specimens. They are not model inference or equipment diagnosis. */
 export function demoAnswer(question: string, chat: Chat | undefined, order: Order | undefined, photoAttached = false): DemoAnswer {
+  if (chat?.scenarioId === "ahu-15") return scenarioAnswer(question, photoAttached);
   const q = question.toLowerCase();
   const equipment = chat?.equipment ?? order?.equipment;
   const lastAssistant = [...(chat?.messages ?? [])].reverse().find((message) => message.author === "assistant");

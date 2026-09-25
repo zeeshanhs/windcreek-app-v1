@@ -1,4 +1,4 @@
-import { initialState, type DemoState, type Message, type Photo } from "./fixtures";
+import { ensureScenarioChats, initialState, type DemoState, type Message, type Photo } from "./fixtures";
 import { applyCreateOrder, applyCloseOrder, applyAddRemark, applyLinkedChat, nextTimestamp } from "./model";
 export { AlreadyClosedError, VersionConflictError } from "./model";
 
@@ -54,6 +54,8 @@ export async function readState(): Promise<DemoState> {
     stateStore.put(state, STATE_KEY);
     const relationships = tx.objectStore("relationships");
     for (const chat of state.chats) if (chat.orderId) relationships.put(chat.id, `${chat.ownerId}|${chat.orderId}`);
+  } else if (ensureScenarioChats(state)) {
+    stateStore.put(state, STATE_KEY);
   }
   await completed(tx);
   return state;
@@ -74,6 +76,7 @@ async function mutate<T>(change: (state: DemoState, stores: Stores) => Promise<T
   const tx = db.transaction(["state", "relationships"], "readwrite");
   const store = tx.objectStore("state");
   const state = (await request(store.get(STATE_KEY)) as DemoState | undefined) ?? initialState();
+  ensureScenarioChats(state);
   try {
     const result = await change(state, { relationships: tx.objectStore("relationships") });
     store.put(state, STATE_KEY);
