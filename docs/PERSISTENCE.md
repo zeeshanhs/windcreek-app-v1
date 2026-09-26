@@ -1,6 +1,6 @@
 # AskPat local persistence
 
-WCAP-003 adds a server-side SQLite data foundation. The current screens still read and write their existing browser IndexedDB state. No HTTP data route, server session, browser import, or UI cutover is part of this stage.
+WCAP-003 added the server-side SQLite data foundation. WCAP-004 adds authenticated demo HTTP operations over it. The current screens still read and write their existing browser IndexedDB state; WCAP-005 will perform the UI cutover and local browser-data transition. The [API contract](ASKPAT_API.md) documents routes, cookies, errors, and retries.
 
 ## Set up and operate a local database
 
@@ -19,7 +19,7 @@ npm run db:seed
 npm run db:reset
 ```
 
-`db:migrate` applies unapplied SQL migrations; `db:seed` inserts the baseline once. A second seed leaves later data and counters untouched. `db:reset` explicitly deletes SQL domain records in a transaction and restores the baseline while retaining migration history. It does **not** clear browser IndexedDB. There is no reset endpoint. Importing modules or running `next build` does not migrate or seed.
+`db:migrate` applies unapplied SQL migrations; `db:seed` inserts the baseline once. A second seed leaves later data and counters untouched. `db:reset` explicitly deletes SQL domain records in a transaction and restores the baseline while retaining migration history. It does **not** clear browser IndexedDB. The authenticated `POST /api/askpat/reset` performs the same SQL reset, revokes sessions, and increments the reset generation. Importing modules or running `next build` does not migrate or seed.
 
 The runtime needs a writable, persistent filesystem for durable data. Ephemeral serverless storage does not satisfy this requirement. Back up the SQLite file with a SQLite-aware backup procedure before moving or restoring real local data; do not copy a live file without its active journal state.
 
@@ -29,7 +29,7 @@ The runtime needs a writable, persistent filesystem for durable data. Ephemeral 
 
 `lib/askpat/contracts/index.ts` owns validated domain and screen DTO schemas. `lib/askpat/contracts/repository.ts` is the dialect-neutral repository port. `lib/askpat/persistence/sqlite/repository.ts` implements it with explicit row-to-DTO mapping. The repository returns order list/detail, chat list/detail, ordered messages, typed references and citation metadata, scenario metadata, and photo metadata. Photo BLOBs are read separately through the owner-scoped `getPhotoBytes`; no list/detail DTO carries image bytes. Stored rich JSON is validated on read and write, and inline citation placements must match their reference rows.
 
-Current demo orders are shared across accounts; chats, messages, faults, and photos are owner-scoped. The repository requires an actor or owner ID. WCAP-004 must derive it from an authenticated server session and protect every endpoint, especially binary photo delivery. The present fictional browser sign-in is not a server security boundary.
+Current demo orders are shared across accounts; chats, messages, faults, and photos are owner-scoped. The repository requires an actor or owner ID. WCAP-004 derives it from a revocable authenticated server session and protects every API endpoint, especially binary photo delivery. The present fictional browser UI sign-in is still not a server security boundary.
 
 The seed is deterministic: 4 users, 6 issues, 7 locations, 6 orders, 7 remarks, 9 events, 10 chats, 62 messages, 6 citation pages, and 60 reference occurrences. Four general AHU-15 chats each contain the 12 authored Marcus/AskPat opening turns. The six supplied Marcus time labels are preserved; AskPat turns have no invented absolute timestamp. The scripted ticket summary and three follow-ups are scenario metadata, not an operational order. Photos, faults, and receipts start empty. Follow-up messages can append at position 13 and beyond.
 

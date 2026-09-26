@@ -1,8 +1,11 @@
 import { and, eq } from "drizzle-orm";
+import { migrate } from "drizzle-orm/better-sqlite3/migrator";
+import path from "node:path";
 import { citations, followUps, messages as scenarioMessages, ticketSummary, type CitationId } from "../../../../app/scenarios/ahu-15/scenario-data";
 import { richContentSchema } from "../../contracts";
 import { initialState, issues as fixtureIssues, locations as fixtureLocations, sourceRecords } from "../../fixtures";
 import type { SqliteConnection } from "./connection";
+import { openSqlite } from "./connection";
 import * as table from "./schema";
 
 const SEED_VERSION = 1;
@@ -117,16 +120,20 @@ export function seedBaseline(connection: SqliteConnection): boolean {
     if (marker) {
       if (marker.version !== SEED_VERSION) throw new Error(`Unsupported seed version ${marker.version}.`);
       assertSeedIntegrity(tx);
+      tx.insert(table.resetGeneration).values({ id: 1, generation: 0 }).onConflictDoNothing().run();
       return false;
     }
     if (tx.select().from(table.users).limit(1).get()) throw new Error("Database has data but no seed marker; reset explicitly or inspect it.");
     insertBaseline(tx);
+    tx.insert(table.resetGeneration).values({ id: 1, generation: 0 }).run();
     return true;
   });
 }
 
 export function resetBaseline(connection: SqliteConnection) {
   connection.db.transaction((tx) => {
+    const generation = tx.select().from(table.resetGeneration).where(eq(table.resetGeneration.id, 1)).get()?.generation ?? 0;
+    tx.delete(table.demoSessions).run();
     tx.delete(table.unknownFaults).run();
     tx.delete(table.photos).run();
     tx.delete(table.messageReferences).run();
@@ -146,5 +153,29 @@ export function resetBaseline(connection: SqliteConnection) {
     tx.delete(table.demoRuntime).run();
     tx.delete(table.seedMetadata).run();
     insertBaseline(tx);
-  });
+    tx.insert(table.resetGeneration).values({ id: 1, generation: generation + 1 }).onConflictDoUpdate({ target: table.resetGeneration.id, set: { generation: generation + 1 } }).run();
+  }, { behavior: "immediate" });
+}
+
+const domainTables = ["users", "issues", "locations", "orders", "order_remarks", "order_events", "scenarios", "scenario_followups", "chats", "messages", "citation_pages", "source_records", "message_references", "photos", "unknown_faults", "operation_receipts", "demo_runtime", "seed_metadata"] as const;
+let baselineSnapshot: string | undefined;
+
+function snapshot(connection: SqliteConnection): string {
+  return JSON.stringify(domainTables.map((name) => {
+    const rows = connection.client.prepare(`select * from ${name}`).all();
+    return [name, rows.map((row) => JSON.stringify(row, (_key, value) => Buffer.isBuffer(value) ? value.toString("base64") : value)).sort()];
+  }));
+}
+
+/** Server-only full-domain comparison used by WCAP-005's maintenance importer. */
+export function isPristineBaseline(connection: SqliteConnection): boolean {
+  if (!baselineSnapshot) {
+    const pristine = openSqlite(":memory:");
+    try {
+      migrate(pristine.db, { migrationsFolder: path.resolve(process.cwd(), "drizzle") });
+      seedBaseline(pristine);
+      baselineSnapshot = snapshot(pristine);
+    } finally { pristine.close(); }
+  }
+  return snapshot(connection) === baselineSnapshot;
 }

@@ -1,6 +1,6 @@
 # AskPat operational prototype
 
-AskPat is a **fictional** Wind Creek Hospitality prototype for service orders and personal AI conversations. The current screens use browser-local IndexedDB. A separate repository-local SQLite foundation is available for the next implementation stages but is not connected to the screens yet. No real employee accounts, property records, HotSOS calls, AI inference, equipment diagnosis, source retrieval, image recognition, or document ingestion are connected.
+AskPat is a **fictional** Wind Creek Hospitality prototype for service orders and personal AI conversations. The current screens use browser-local IndexedDB. A separate authenticated demo API now uses repository-local SQLite; WCAP-005 will connect the screens to that API. No real employee accounts, property records, HotSOS calls, AI inference, equipment diagnosis, source retrieval, image recognition, or document ingestion are connected.
 
 ## Run locally
 
@@ -47,9 +47,9 @@ Six orders and Morgan's five WCAP-001 chats are seeded, plus one AHU-15 general 
 
 Committed UI records live in this browser's IndexedDB and remain across route changes, account switches, and reloads. **Reset demo** in the account menu restores the initial fixture. Open tabs are notified of committed changes, and each write rechecks the local store. Other browsers and devices have separate data. Browser storage can be cleared or unavailable; the current UI has no server-side persistence, production authorization, or cross-device synchronization.
 
-## SQLite foundation for WCAP-004
+## SQLite foundation and WCAP-004 API
 
-After `npm ci`, run `npm run db:setup` to create and migrate the ignored `.local/askpat.sqlite` file and seed the relational baseline. `npm run db:seed` is repeatable without replacing later SQL records; `npm run db:reset` explicitly restores the SQL baseline. These commands do not affect browser IndexedDB. See [local persistence](docs/PERSISTENCE.md) for the schema, DTO and repository entry points, `DATABASE_FILE` override, durability limits, and PostgreSQL migration path.
+After `npm ci`, run `npm run db:setup` to create and migrate the ignored `.local/askpat.sqlite` file and seed the relational baseline. `npm run db:seed` is repeatable without replacing later SQL records; `npm run db:reset` explicitly restores the SQL baseline. These commands do not affect browser IndexedDB. To use the demo API, set a random `ASKPAT_SESSION_SECRET` of at least 32 characters in an ignored `.env.local`, and set `ASKPAT_APP_ORIGIN` if the app is not at `http://localhost:3000`. Run `npm run dev` or `npm start` after setup. The API uses an HttpOnly cookie and server-owned actor identity; the present UI sign-in remains browser-local until WCAP-005. See [API contract](docs/ASKPAT_API.md) and [local persistence](docs/PERSISTENCE.md).
 
 The demonstration clock begins at 24 Sep 2026, 10:30 UTC and advances deterministically with actions. Answers and sources are scripted training specimens. A sent photo remains a local chat attachment and is not uploaded to a knowledge base. The photo control accepts one PNG or JPEG up to 10 MB per message.
 
@@ -64,7 +64,7 @@ npx tsc --noEmit
 npm run build
 ```
 
-`npm test` exercises the existing browser-domain logic plus temporary SQLite migration, seed, repository, ownership, photo, receipt, and reset behavior. Browser inspection is still required for responsive layout, dialogs, keyboard behavior, and the full AT-01–AT-38 acceptance scenarios.
+`npm test` exercises the existing browser-domain logic plus temporary SQLite migration, seed, repository, API session/ownership, photo, receipt, and reset behavior. Browser inspection is still required for responsive layout, dialogs, keyboard behavior, and the full AT-01–AT-38 acceptance scenarios.
 
 ## Production dependencies
 

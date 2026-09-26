@@ -119,3 +119,14 @@ export const demoRuntime = sqliteTable("demo_runtime", {
 export const seedMetadata = sqliteTable("seed_metadata", {
   id: integer("id").primaryKey(), version: integer("version").notNull(), installedAt: text("installed_at").notNull(),
 }, (t) => [check("seed_metadata_singleton_ck", sql`${t.id} = 1`)]);
+
+export const demoSessions = sqliteTable("demo_sessions", {
+  tokenHash: text("token_hash").primaryKey(),
+  userId: text("user_id").notNull().references(() => users.id),
+  expiresAt: text("expires_at").notNull(),
+  revokedAt: text("revoked_at"),
+}, (t) => [index("demo_sessions_user_idx").on(t.userId)]);
+
+export const resetGeneration = sqliteTable("reset_generation", {
+  id: integer("id").primaryKey(), generation: integer("generation").notNull(),
+}, (t) => [check("reset_generation_singleton_ck", sql`${t.id} = 1`)]);
